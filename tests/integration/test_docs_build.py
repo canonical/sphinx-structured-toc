@@ -14,6 +14,10 @@ def test_package_docs_build(tmp_path: Path):
 
     subprocess.run(
         [
+            "uv",
+            "run",
+            "--with-requirements",
+            str(project_root / "docs" / "requirements.txt"),
             "sphinx-build",
             "-b",
             "html",
