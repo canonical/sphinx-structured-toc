@@ -17,6 +17,7 @@ sphinx:
 # Also build a PDF, using Read the Docs' LaTeX toolchain
 formats:
   - pdf
+  - htmlzip
 
 # Install the project with the `docs` extra so the `furo` theme is
 # available during the docs build.
