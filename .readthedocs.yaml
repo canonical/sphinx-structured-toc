@@ -11,17 +11,6 @@ build:
     python: "3.13"
     nodejs: "22"
   jobs:
-    post_system_dependencies:
-      - asdf plugin add uv
-      - asdf install uv latest
-      - asdf global uv latest
-    create_environment:
-      - uv venv "${READTHEDOCS_VIRTUALENV_PATH}"
-    install:
-      - make setup-docs DOCS_VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}" UV_PROJECT_ENVIRONMENT="${READTHEDOCS_VIRTUALENV_PATH}"
-    build:
-      html:
-        - make -C docs html DOCS_VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}" UV_PROJECT_ENVIRONMENT="${READTHEDOCS_VIRTUALENV_PATH}" DOCS_BUILDDIR="$READTHEDOCS_OUTPUT/html/"
     post_build:
       - make -C docs purge-css DOCS_BUILDDIR="$READTHEDOCS_OUTPUT/html/"
 
